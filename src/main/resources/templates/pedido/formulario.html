@@ -36,34 +36,41 @@
 		</nav>
 
 
-
-		<form action="/pedido/novo" method="POST">
-		
-			<div>
-				<label for="nomeProduto">Nome</label> 
-				<input name="nomeProduto" placeholder="Nome do produto"> 
-				<small>Informe qual o nome do produto</small>
-			</div>
-			<div>
-				<label for="urlProduto">Url</label> 
-				<input name="urlProduto" placeholder="Url do produto"> 
-				<small>Procure em um site a url do produto que você deseja</small>
-			</div>
-			<div>
-				<label for="imgProduto">Nome</label> 
-				<input name="imgProduto" placeholder="Url da Imagem do produto"> 
-				<small>Procure em um site a url da imagem do produto que você deseja</small>
-			</div>
-			<div>
-				<label for="descProduto">Descrição do produto</label> 
-				<textarea name="descProduto" placeholder="Descrição do produto"></textarea>
-				<small>Descreva o produto</small>
-			</div>
-			<button type="submit"> Cadastrar </button>
+		<div class="card mt-3">
+  
+			<form th:object="${requisicaoNovoPedido}" class="card-body" action="/pedido/novo" method="POST">		
+				<div class="form-group">
+					<label  for="nomeProduto">Nome</label> 
+					<input th:field="*{nomeProduto}" th:errorclass="is-invalid" class="form-control" placeholder="Nome do produto"> 
+					<small>Informe qual o nome do produto</small>
+					
+					<div th:errors="*{nomeProduto}" class="invalid-feedback">Erros do nome do produto</div>
+				</div>
+				<div class="form-group">
+					<label for="urlProduto">Url</label> 
+					<input th:field="*{urlProduto}" th:errorclass="is-invalid" class="form-control"  placeholder="Url do produto"> 
+					<small>Procure em um site a url do produto que você deseja</small>
+					
+					<div th:errors="*{urlProduto}" class="invalid-feedback">Erros da url do produto</div>
+				</div>
+				<div class="form-group">
+					<label for="imgProduto">Nome</label> 
+					<input th:field="*{imgProduto}" th:errorclass="is-invalid" class="form-control"  placeholder="Url da Imagem do produto"> 
+					<small>Procure em um site a url da imagem do produto que você deseja</small>
+					
+					<div th:errors="*{imgProduto}" class="invalid-feedback">Erros da url da imagem</div>
+				</div>
+				<div class="form-group">
+					<label for="descProduto">Descrição do produto</label> 
+					<textarea  th:field="*{descProduto}" class="form-control" placeholder="Descrição do produto"></textarea>
+					<small>Descreva o produto</small>
+					
 			
-		</form>
-
-
+				</div>
+				<button type="submit"  class="btn btn-primary"> Cadastrar </button>
+				
+			</form>
+		</div>
 
 	</div>
 </body>

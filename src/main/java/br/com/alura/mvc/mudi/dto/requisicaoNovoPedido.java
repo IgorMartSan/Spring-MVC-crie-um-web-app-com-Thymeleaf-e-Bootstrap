@@ -1,11 +1,18 @@
 package br.com.alura.mvc.mudi.dto;
 
+import javax.validation.constraints.NotBlank;
+
 import br.com.alura.mvc.mudi.model.Pedido;
 
-public class requisicaoNovoPedido {
-
+public class RequisicaoNovoPedido {
+	
+	@NotBlank//NotBlank.requisicaoNovoPedido.nomeProduto=campo deve ser preenchido
 	private String nomeProduto;
+	
+	@NotBlank
 	private String urlProduto;
+	
+	@NotBlank
 	private String imgProduto;
 	private String descProduto;
 

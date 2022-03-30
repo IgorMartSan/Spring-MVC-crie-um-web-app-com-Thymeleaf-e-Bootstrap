@@ -8,17 +8,19 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
-
 @Entity
 public class Pedido {
-	@Id @GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long id;
-	
+
+
 	private String nomeProduto;
 	private BigDecimal Valornegociado;
 	private LocalDate dataEntrega;
 	private String urlProduto;
 	private String urlImag;
+	
 	private String descricao;
 
 	public String getNomeProduto() {
@@ -68,6 +70,5 @@ public class Pedido {
 	public void setDescricao(String descricao) {
 		this.descricao = descricao;
 	}
-
 
 }
